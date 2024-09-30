@@ -1,0 +1,113 @@
+﻿@model Assignment1.Models.UserModel
+
+@{
+    ViewData["Title"] = "Signup";
+}
+
+<div class="container mt-5">
+    <!-- success message display -->
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <!-- signup form card -->
+    <div class="card shadow mx-auto w-50">
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0 text-center">Signup</h3>
+        </div>
+        <div class="card-body">
+            <!-- signup form -->
+            <form asp-action="Index" method="post">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <!-- first name input -->
+                <div class="form-group mb-3">
+                    <label asp-for="FirstName" class="form-label"></label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <input asp-for="FirstName" class="form-control" placeholder="Enter your first name" required />
+                    </div>
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+
+                <!-- last name input -->
+                <div class="form-group mb-3">
+                    <label asp-for="LastName" class="form-label"></label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <input asp-for="LastName" class="form-control" placeholder="Enter your last name" required />
+                    </div>
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+
+                <!-- email input -->
+                <div class="form-group mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        <input asp-for="Email" class="form-control" type="email" placeholder="Enter your email address" required pattern="[a-z0-9._%+-]+@@[a-z0-9.-]+\.[a-z]{{2,}}$" />
+                    </div>
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <!-- phone number input with country code -->
+                <div class="form-group mb-3">
+                    <label asp-for="PhoneNumber" class="form-label"></label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                        <select asp-for="CountryCode" class="form-select" style="max-width: 30%;" required>
+                            <option value="+1">+1 (USA/CA)</option>
+                            <option value="+44">+44 (UK)</option>
+                            <option value="+91">+91 (India)</option>
+                        </select>
+                        <input asp-for="PhoneNumber" class="form-control" type="tel" placeholder="Enter your phone number" required pattern="\d{10}" title="Please enter a 10-digit phone number" />
+                    </div>
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+
+                <!-- password input -->
+                <div class="form-group mb-3">
+                    <label asp-for="Password" class="form-label"></label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <input asp-for="Password" class="form-control" placeholder="Enter your password" required />
+                    </div>
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+
+                <!-- confirm password input -->
+                <div class="form-group mb-3">
+                    <label asp-for="ConfirmPassword" class="form-label"></label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <input asp-for="ConfirmPassword" class="form-control" placeholder="Confirm your password" required />
+                    </div>
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+
+                <!-- form buttons -->
+                <button type="submit" class="btn btn-primary">Register</button>
+                <button type="button" onclick="clearForm()" class="btn btn-secondary">Clear</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- scripts section -->
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        // function to clear the form by refreshing the window
+        function clearForm() {
+            window.location.href = '@Url.Action("Index", "Home")';
+        }
+    </script>
+}

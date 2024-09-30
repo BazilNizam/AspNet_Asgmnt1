@@ -1,0 +1,25 @@
+﻿@model Assignment1.Models.UserModel
+
+@{
+    ViewData["Title"] = "Login Successful";
+}
+
+<div class="container mt-5">
+    
+    <div class="row align-items-center">
+        <div class="col-md-8">
+            <h1 class="display-4">Hi, <strong>@Model.FirstName @Model.LastName</strong>!</h1>
+            <p class="lead">Welcome to your dashboard.</p>
+        </div>
+        <div class="col-md-4 text-end">
+            <img src="~/Images/img.svg" alt="Success Image" width="500px" height="500px" />
+        </div>
+    </div>
+    <div class="mt-4">
+        <div class="alert alert-success alert-dismissible fade show" role="alert" style="max-width: 50%;">
+            <h4 class="alert-heading">Login Successful!</h4>
+            <p>You have successfully logged into your account.</p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+</div>

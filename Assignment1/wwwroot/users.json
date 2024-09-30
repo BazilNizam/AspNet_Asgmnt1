@@ -1,0 +1,38 @@
+[
+  {
+    "FirstName": "BASIL",
+    "LastName": "MOYIKKAL",
+    "Email": "basilm1108@gmail.com",
+    "PhoneNumber": "4376628975",
+    "CountryCode": "\u002B1",
+    "Password": "123456",
+    "ConfirmPassword": "123456"
+  },
+  {
+    "FirstName": "BASIL",
+    "LastName": "MOYIKKAL",
+    "Email": "basilm1108@gmail.com",
+    "PhoneNumber": "4376628975",
+    "CountryCode": "\u002B1",
+    "Password": "444444",
+    "ConfirmPassword": "444444"
+  },
+  {
+    "FirstName": "BASIL",
+    "LastName": "MOYIKKAL",
+    "Email": "basilm1108@gmail.com",
+    "PhoneNumber": "4376628975",
+    "CountryCode": "\u002B1",
+    "Password": "333333",
+    "ConfirmPassword": "333333"
+  },
+  {
+    "FirstName": "BASIL",
+    "LastName": "MOYIKKAL",
+    "Email": "basilm1108@gmail.com",
+    "PhoneNumber": "4376628975",
+    "CountryCode": "\u002B1",
+    "Password": "222222",
+    "ConfirmPassword": "222222"
+  }
+]
